@@ -10,16 +10,17 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Cursor.overlapsWith(sprites.create(assets.image`myImage`, SpriteKind.Turkey))) {
         game.showLongText("Click on Feather for Mini-Game", DialogLayout.Bottom)
         SpawnCursor()
-    } else if (Cursor.overlapsWith(Feather1)) {
-    	
-    } else if (Cursor.overlapsWith(Feather2)) {
-    	
-    } else if (Cursor.overlapsWith(Feather3)) {
-    	
-    } else if (Cursor.overlapsWith(Feather4)) {
-    	
+    } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage0`, SpriteKind.Turkey))) {
+        ClearScreen()
+    } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage1`, SpriteKind.Turkey))) {
+        ClearScreen()
+    } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage2`, SpriteKind.Turkey))) {
+        ClearScreen()
+    } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage3`, SpriteKind.Turkey))) {
+        ClearScreen()
     } else {
-    	
+        SpawnCursor()
+        game.showLongText("Click on Feather for Mini-Game", DialogLayout.Bottom)
     }
 })
 function SpawnCursor () {
@@ -60,22 +61,18 @@ function ClearScreen () {
 }
 let Cursor: Sprite = null
 let TurkeyArray: Sprite[] = []
-let Feather4: Sprite = null
-let Feather3: Sprite = null
-let Feather2: Sprite = null
-let Feather1: Sprite = null
 let TurkeyBody = sprites.create(assets.image`myImage`, SpriteKind.Turkey)
-Feather1 = sprites.create(assets.image`myImage0`, SpriteKind.Turkey)
-Feather2 = sprites.create(assets.image`myImage1`, SpriteKind.Turkey)
-Feather3 = sprites.create(assets.image`myImage2`, SpriteKind.Turkey)
-Feather4 = sprites.create(assets.image`myImage3`, SpriteKind.Turkey)
+let Feather1 = sprites.create(assets.image`myImage0`, SpriteKind.Turkey)
+let Feather2 = sprites.create(assets.image`myImage1`, SpriteKind.Turkey)
+let Feather3 = sprites.create(assets.image`myImage2`, SpriteKind.Turkey)
+let Feather4 = sprites.create(assets.image`myImage3`, SpriteKind.Turkey)
 ClearScreen()
 TurkeyArray = [
-sprites.create(assets.image`myImage`, SpriteKind.Turkey),
 sprites.create(assets.image`myImage0`, SpriteKind.Turkey),
 sprites.create(assets.image`myImage1`, SpriteKind.Turkey),
 sprites.create(assets.image`myImage2`, SpriteKind.Turkey),
-sprites.create(assets.image`myImage3`, SpriteKind.Turkey)
+sprites.create(assets.image`myImage3`, SpriteKind.Turkey),
+sprites.create(assets.image`myImage`, SpriteKind.Turkey)
 ]
 SpawnCursor()
 SpawnTurkey()
