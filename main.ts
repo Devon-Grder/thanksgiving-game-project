@@ -5,26 +5,99 @@ namespace SpriteKind {
     export const TurkeyFeather2 = SpriteKind.create()
     export const TurkeyFeather3 = SpriteKind.create()
     export const TurkeyFeather4 = SpriteKind.create()
+    export const Null = SpriteKind.create()
 }
 function SpawnTurkey () {
-    for (let index = 0; index <= TurkeyArray.length - 1; index++) {
-        NewTurkey = sprites.create(TurkeyArray[index].image, TurkeyArray[index].kind())
-        NewTurkey.setPosition(80, 60)
-    }
+    TurkeyBody.setPosition(80, 60)
+    Feather1.setPosition(80, 60)
+    Feather2.setPosition(80, 60)
+    Feather3.setPosition(80, 60)
+    Feather4.setPosition(80, 60)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Cursor.overlapsWith(sprites.create(assets.image`myImage0`, SpriteKind.TurkeyFeather1))) {
+        Feather1 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Null)
         ClearScreen()
         MiniGame1()
         SpawnTurkey()
+        SpawnCursor()
     } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage1`, SpriteKind.TurkeyFeather2))) {
+        Feather2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Null)
         ClearScreen()
         MiniGame2()
         SpawnTurkey()
     } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage2`, SpriteKind.TurkeyFeather3))) {
-    	
+        Feather3 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Null)
     } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage3`, SpriteKind.TurkeyFeather4))) {
-    	
+        Feather4 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Null)
     } else if (Cursor.overlapsWith(sprites.create(assets.image`myImage`, SpriteKind.Turkey))) {
         SpawnCursor()
         game.showLongText("Click on Feather for Mini-Game", DialogLayout.Bottom)
@@ -144,7 +217,7 @@ function MiniGame1 () {
         .............................................4444444444444444.................
         `, SpriteKind.Cornacopia)
     pause(2000)
-    GuessVariable = randint(0, 2)
+    GuessVariable = randint(1, 2)
     while (Player1Guess != GuessVariable || Player2Guess != GuessVariable) {
         GuessVariable = randint(0, 2)
         Player1Guess = game.askForNumber("Player 1 How many fruits are there? 1 or 2", 2)
@@ -252,11 +325,6 @@ function ClearScreen () {
     sprites.destroyAllSpritesOfKind(SpriteKind.Projectile)
     sprites.destroyAllSpritesOfKind(SpriteKind.Food)
     sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Turkey)
-    sprites.destroyAllSpritesOfKind(SpriteKind.TurkeyFeather1)
-    sprites.destroyAllSpritesOfKind(SpriteKind.TurkeyFeather2)
-    sprites.destroyAllSpritesOfKind(SpriteKind.TurkeyFeather3)
-    sprites.destroyAllSpritesOfKind(SpriteKind.TurkeyFeather4)
     sprites.destroyAllSpritesOfKind(SpriteKind.Cornacopia)
 }
 let Fruit: Sprite = null
@@ -269,14 +337,15 @@ let Player1Guess = 0
 let GuessVariable = 0
 let GuessCornSprite: Sprite = null
 let Cursor: Sprite = null
-let NewTurkey: Sprite = null
-let TurkeyArray: Sprite[] = []
-TurkeyArray = [
-sprites.create(assets.image`myImage0`, SpriteKind.TurkeyFeather1),
-sprites.create(assets.image`myImage1`, SpriteKind.TurkeyFeather2),
-sprites.create(assets.image`myImage2`, SpriteKind.TurkeyFeather3),
-sprites.create(assets.image`myImage3`, SpriteKind.TurkeyFeather4),
-sprites.create(assets.image`myImage`, SpriteKind.Turkey)
-]
+let Feather4: Sprite = null
+let Feather3: Sprite = null
+let Feather2: Sprite = null
+let Feather1: Sprite = null
+let TurkeyBody: Sprite = null
+TurkeyBody = sprites.create(assets.image`myImage`, SpriteKind.Turkey)
+Feather1 = sprites.create(assets.image`myImage0`, SpriteKind.TurkeyFeather1)
+Feather2 = sprites.create(assets.image`myImage1`, SpriteKind.TurkeyFeather2)
+Feather3 = sprites.create(assets.image`myImage2`, SpriteKind.TurkeyFeather3)
+Feather4 = sprites.create(assets.image`myImage3`, SpriteKind.TurkeyFeather4)
 SpawnTurkey()
 SpawnCursor()
